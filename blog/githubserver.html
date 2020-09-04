@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免费的"服务器": Github</title>
+    <style>
+    body {
+        background-color: rgba(183, 206, 206, 0.3);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, SimSun;
+    }
+    
+    #head{
+        height: 60px;
+        background-color:#1c0f13;
+        line-height: 60px;
+        font-size: 18px;
+    }
+
+    #head a{
+        display: inline-block;
+        color: #e2e2e2;
+        text-decoration: none;
+        margin: 0 15px;
+    }
+
+    #blog {
+        width: 1750px;
+        margin: 30px auto;
+        padding: 50px 50px;
+        line-height: 35px;
+        font-size: 22px;
+        color: #1c0f13;
+        background-color: rgba(226, 226, 226, 0.3);      
+    }
+
+    hr {
+        margin: 20px 0;
+    }
+
+    #blog .indent {
+        margin: 0;
+        padding: 0 50px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="head">
+        <a href = "index.html">首页</a>
+        <a href = "#">博客</a>
+        <a href = "#">歌曲推荐</a>
+        <a href = "#">小说推荐</a>
+        <a href = "#">联系我</a>
+    </div>
+    <div id="blog">
+        <h1>免费的"服务器": Github</h1>
+        <hr />
+        <p>第一篇博客呢，我想水一点，写一下在Github上"搭建网站"的过程。</p>
+        <br />
+        <p>首先，可以注意到，我们这个网址是<a href="index.html">jh-liang.github.io</a>。我们要做的呢就是在GitHub上放上所有你需要用到的HTML页面、路径、档案，就跟你在其他服务器搭网站一样。</p>
+        <br />
+        <p>在Github上创建网站的方式和在Github上创建一个库的方式 <strong>完 全 一 样</strong>，是的是一模一样，从new repository到clone，所有步骤都完全一样，如果不清楚怎么创建库、怎么clone到本地的文件夹，可以去百度上找哦，很容易找到的。由于我不太清楚Mac和Linux是怎么样的，所以我在这里就不写了。</p>
+        <br />
+        <p>以下是几个需要注意的点：</p>
+        <div class="indent">
+            <ol>
+                <li>在new repository命名库的时候，库的名字必须是 <strong>your_github_username.github.io</strong> (也就是你的网站名)，这样你的库就会自动变成一个网站</li>
+                <li>你的首页必须是index.html</li>
+                <li>在commit, push了至少一个html档案、你的首页之后，只要在浏览器输入 your_username.github.io 就能看到你的专属网站啦</li>
+                <li>你做网站需要的文件类型都可以放上去，css、png等等</li>
+                <li>但是，我估计通过Github搭建的网站要实现后台反馈收集资料的功能会比较难，我暂时还没试，尝试后会在本帖继续给大家分享。</li>
+            </ol>
+        </div>
+
+    </div>
+    
+</body>
