@@ -1,29 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作业</title>
+    <title>独一无二的网站</title>
     <style>
-    div {
-        background-color: grey;
-        width: 400px;
-        height: 400px;
-    	/* div是个块元素，独占一行 */
-    }
-    
-    .left {
-    	float: left;
-        background-color: red;
-        width: 200px;
-        height: 200px;
+    body {
+        background-color: rgba(183, 206, 206, 0.3);
     }
 
-</style></head>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, SimSun;
+    }
+    
+    #head{
+        height: 60px;
+        background-color:#1c0f13;
+        line-height: 60px;
+        font-size: 18px;
+    }
+
+    #head a{
+        display: inline-block;
+        color: #e2e2e2;
+        text-decoration: none;
+        margin: 0 15px;
+    }
+
+    #banner {
+        height: 200px;
+        color: #1c0f13;
+        background-color:#bbbac6;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 40px;
+        padding: 20px 20px;
+    }
+
+    #blog {
+        width: 1750px;
+        height: 600px;
+        margin: 30px auto;
+    }
+
+    #blogtitle{
+        height: 50px;
+        line-height: 50px;
+        font-size: 30px;
+        color: #bbbac6;
+    }
+
+    #blog a{
+        display: inline-block;
+        height: 550px;
+        width: 400px;
+        margin-left: 30px;
+        background-color: rgba(226, 226, 226, 0.3);
+        color: #1c0f13;
+        text-decoration: none;
+    }
+
+    #contact {
+        margin: 40px;
+        padding: 40px;
+        background-color: rgba(110, 126, 133, 0.5);
+        border-radius: 5px;
+        line-height: 32px;
+        color: #6e7e85;
+        height: 128px;
+    }
+
+    #contact h4{
+        font-weight: 700;
+        font-size: 22px;
+    }
+    #contact em{
+        font-size: 18px;
+        text-indent: 4em;
+        color: rgba(110, 126, 133, 0.8);
+    }
+
+    </style>
+</head>
 <body>
-	<div>A</div>
-	<div class="left">B</div>
-	<div>C</div>
-    <div class="left">D</div>
+    <div id="head">
+        <a href = "#head">首页</a>
+        <a href = "#">博客</a>
+        <a href = "#">歌曲推荐</a>
+        <a href = "#">小说推荐</a>
+        <a href = "#">联系我</a>
+    </div>
+    <div id="banner">
+        <p>你好，这里是我的网站。本网站使用Github作为一个公开发布的平台，我会分享一下我感兴趣的东西。我做这个网站就是玩玩、练习一下而已。有任何关于这个网站的建议，美观啊，结构啊，内容啊，三观啊，甚至作者在现实生活中的问题啊，都可以通过网页最后的email跟我说哦，我会尽快学会后端然后在网站里弄一个反馈的东西的~</p>
+        <br />
+        <p>Hi all, here is my website, using github as a "server". I will share something funny to me here on this website. I do this website for fun and practice. I have put my email at the end of the page. Please feel free to contract me, make a friend and give any opinion on this website, anything you feel comfortable or uncomfortable :) Sorry that the website is mainly in Chinese :(</别人>
+    </div>
+    <div id="blog">
+        <h5 id="blogtitle">博客</h5>
+        <a href="/Blog1">Blog1</a>
+        <a href="#">Blog2</a>
+        <a href="#">Blog3</a>
+        <a href="#">Blog4</a>
+
+        
+    </div>
+
+    <div id="contact">
+        <h4>联系方式：</h4>
+        <em>QQ: 2487312284</em><br />
+        <em>Email: jh.liang@sjtu.edu.cn</em><br />
+
+    </div>
+    
 </body>
