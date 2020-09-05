@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端快速入门: HTML</title>
+    <style>
+    body {
+        background-color: rgba(183, 206, 206, 0.3);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, SimSun;
+    }
+    
+    #head{
+        height: 60px;
+        background-color:#1c0f13;
+        line-height: 60px;
+        font-size: 18px;
+    }
+
+    #head a{
+        display: inline-block;
+        color: #e2e2e2;
+        text-decoration: none;
+        margin: 0 15px;
+    }
+
+    #blog {
+        width: 1500px;
+        margin: 30px auto;
+        padding: 50px 50px;
+        line-height: 35px;
+        font-size: 22px;
+        color: #1c0f13;
+        background-color: rgba(226, 226, 226, 0.3);      
+    }
+
+    textarea {
+        margin: 15px 0;
+        background-color: transparent;
+        font-size: 22px;
+        display: block;
+        width: 1460px;
+    }
+
+    b, strong {
+        font-weight: 900px;
+    }
+
+    h2, h3 {
+        line-height: 80px;
+    }
+
+    hr {
+        margin: 20px 0;
+    }
+
+    #blog .indent {
+        margin: 0;
+        padding: 0 50px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="head">
+        <a href = "../index.html">首页</a>
+        <a href = "#">博客</a>
+        <a href = "#music">歌曲推荐</a>
+        <a href = "#novel">小说推荐</a>
+        <a href = "#contact">联系我</a>
+    </div>
+    <div id="blog">
+
+    <h1>前端快速入门: HTML</h1>
+    <hr />
+    <p>有些初入门的编程学生们在学了某种编程语言，比如C之后，就会想要快速的入门其他语言，但又不想跟着教程从怎么学打"Hello World"开始，所以我在学HTML的时候就顺手写一些笔记，方便有编程基础的人快速入门了解HTML，希望读者能在二十分钟内了解到网页编写的基本东西。</p><br />
+    
+    <p>*注意： 本文所有内容为博主自行了解的东西，语法、术语并不完全准确，请抱着疑问的心态看文章，而且这本来是我的笔记，所以比较言简意赅，可能需要停下来思考一下是不是真的懂了再继续。有任何出错的地方，请在评论中指出，谢谢。</p><br />
+
+    <p>我跟着B站视频学的，<a href="https://www.bilibili.com/video/BV14J4114768?p=1">https://www.bilibili.com/video/BV14J4114768?p=1</a>，说的很好非常细，但是有点啰嗦。
+    也可以看W3C哦，基本上把它介绍的东西都看一遍就会了，<a href="http://www.w3school.com.cn/">http://www.w3school.com.cn/</a>.</p><br />
+
+    <h2>关于网页编写的一些基本知识</h2>
+
+    <p>大家看网页代码的时候可能有些迷惑，网页跟LaTeX不同，可能由多于一个档案编译而成的，编译器是大家常用的浏览器。现在只要满足基本的格式，就可以被几个大众使用的浏览器所编译。最基本的网站包含三种档案，HTML、CSS和JavaScript:</p>
+    <p>HTML负责网页的内容、框架；</p>
+    <p>CSS负责网页的美工、排版；</p>
+    <p>JavaScript负责网页某些动作、交互等等；</p><br />
+    <p>通常写一个简简单单的、就像LaTeX、Markdown差不多的网页，使用HTML就足够了</p><br />
+    
+    <p>我分享笔记的目的是让大家在打开一个网页的代码的时候能够读懂，具体去提升代码能力的话可以随便打开一个网页的代码去观摩，从简朴到美轮美奂，什么时候你看到一个网页的布局想象不出来它的代码的话就点进去看一下，最后当然是试着自己去写一个自己的网页。</p><br />
+    
+    <h2>HTML</h2>
+    
+    <p>HTML, Hyper Text Markup Language，超文本标记语言。我本来以为它跟C++，Python这些编程语言差不多，但其实它主要负责页面的信息、结构，不管其他花里胡哨的东西，所以跟LaTeX这样的排版标记语言更像(当然你愿意的话可以用HTML码报告)</p><br />
+    
+    <p>我之前没用过Markdown，但是在写博客的时候发现HTML和Markdown非常相似，会用Markdown的朋友基本上就会用HTML了
+    HTML非常方便，不需要安装任何编译器，因为任何浏览器都是HTML的编译器。按照HTML的基本规则写出来的代码在每个浏览器上效果都是差不多的</p><br />
+    
+    <p>编写HTML代码推荐使用VSCode，美观方便。VSCode编写HTML推荐以下两个插件，好不好因人而异，其实开个记事本也没差
+    1. Auto Rename Tag (在改某个paired tag中的某一个tag时，可以一并改掉它对应的tag)
+    2. open in browser (可以直接在VSCode的代码编辑页面打开网页)</p><br />
+    
+    <p>在VSCode新开一个HTML档案(.html)，只要打一个!(当然是英文感叹号字符)，然后会弹出提示，选第一个Emmet Abbreviation，感叹号就会变成一段网页的基本构造代码：</p>
+    
+    <textarea style = "height: 360px;">
+
+    &lt;!DOCTYPE html&gt;                                   &lt;!--定义文件类型--&gt;
+    &lt;html lang="en"&gt;                                      &lt;!--html的属性：网页语言，这跟网页里面到底是啥语言没有太大关系，中文网页也可能会出现英文，主要是为了翻译和搜索引擎用的--&gt;
+    &lt;head&gt;                                                     &lt;!--head主要设定一下网页的基本格式啥的，只有title需要改，其他照抄就好--&gt;
+        &lt;meta charset="UTF-8"&gt;                     &lt;!--档案字符编码方式，通常选"UTF-8"就行--&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;网页的名称&lt;/title&gt;                       &lt;!--会在你浏览器页面上方显示本网页的名称，比如百度的"百度一下，你就知道"--&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        网页的内容
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </textarea>
+    
+    <p>相信你们也看出来了  &lt;!-- comment --&gt;是注释tag</p><br />
+    
+    <h3>HTML tag</h3>
+    
+    <p>HTML的重点就是怎么使用tag去做一些排版和属性的操作</p>
+    <p><strong>Paired tag</strong> 是前后一对出现的tag，类似于LaTeX里的begin{ } 和 end{ }，用于一些在一段范围内生效的效果，比如标题、段落、超链接等。格式为&lt;tag&gt;content&lt;/tag&gt;</p>
+    <p><strong>Single tag</strong> 是单独出现的tag，作用于某一个位置，而已，比如断行、放入一张图片等等。格式为&lt;tag /&gt;</p>
+    <p>Tag可以包含很多属性，如果想使用default的属性直接不写就可以了。格式为&lt;tag att1="abc" att2="bcd"&gt;</p><br />
+    
+    <p>简单列几个经常会用到的tag<br />
+    <b>标题tag: &lt;h1&gt;&lt;/h1&gt;, &lt;h2&gt;&lt;/h2&gt; ... &lt;h6&gt;&lt;/h6&gt; </b> 数字越小 标题越大<br />
+    <b>断行tag: &lt;br /&gt;</b> , HTML里的文本是不会自动断行的，因为它不会数空格和断行符，所以需要手动断行和分段<br />
+    <b>段落tag: &lt;p&gt;&lt;/p&gt;</b> <br />
+    <b>粗体、斜体、删除线、下划线: &lt;strong&gt;&lt;/strong&gt;, &lt;em&gt;&lt;/em&gt;, &lt;del&gt;&lt;/del&gt;, &lt;ins&gt;&lt;/ins&gt;</b></p><br />
+    
+    <p><b>插入图片tag: &lt;img src="路径/网址" /&gt;</b> <br />
+    img里<b>src</b>是必须要写的属性，表示图片的路径(通常是指你服务器里的文件档案路径)/网址(如果你把图片放到你的网站上的某个网页的话)。还有几个好玩的属性，比如width, height, border, alt(当图片显示不了、路径有错时，直接显示在网页上的broken image文字), title(当鼠标悬停在图片的时候出现的caption)</p><br />
+    
+    <p><b>超链接tag: &lt;a href="网址"&gt;&lt;/a&gt;</b>
+    超链接里的href属性也是必须的，表示链接的网址。如果是外部网站，链接就是平时在浏览器输入的网址。
+    如果是同一个网站上的网页的话，按照我的理解，一整个网站就相当于一个服务器，一个文件夹，所以要去同网站的网页(内部链接)的话，链接就是路径(网站名后面的那堆斜杠)。
+    例如，http://www.网站名/路径1/路径2/路径3/网页.html，那链接就是：路径1/路径2/路径3/网页.html
+    超链接还有个属性：target，即超链接在哪里打开。default属性是"<em>self"，即在本来的页面直接打开；如果想要开一个新的页面然后打开，target="</em>blank"
+    熟系百度和谷歌两个搜索引擎的朋友可能知道，百度用的是"<em>blank"，谷歌用的是"</em>self"
+    超链接不一定只链接网页(html)，也可以链接服务器里的某个zip或某个文件(下载链接)，或者纯粹一个"#"(空链接)。</p><br />
+    
+    <p>HTML里还有一个经常会用到的技巧，就是<b>锚点链接</b>，可以用来实现返回顶部、跳转到某个部分(可以开百度百科感受一下哦)，这需要一个叫做id的属性。
+    在跳转的目的地附近找一个tag，里面加上一个id属性，id = "自定义"，然后超链接下的href = "#自定义"，id前加个#符号就可以了。</p><br />
+    
+    <p>在HTML里还有<b>表格</b>，但是我就不细说了。HTML能做到的表格样式很有限，一般需要搭配CSS对表格进行美化。表格的基本形式是</p>
+    
+    <textarea style = "height: 340px;">
+
+    &lt;table&gt;                                                                &lt;!--表格的标签--&gt;
+        &lt;tr&gt;                                                                  &lt;!--表格的每一行都要用tr(table row)标签，嵌套在table标签里--&gt;
+            &lt;th&gt; &lt;/th&gt;    &lt;th&gt; &lt;/th&gt;    &lt;th&gt; &lt;/th&gt;           &lt;!--表格的每一个单元格要用td或th标签，嵌套在tr(行)标签里面--&gt;
+        &lt;/tr&gt;                                                                 &lt;!--如果是行首(表示种类，需要加粗)使用th标签，普通单元格使用td标签--&gt;
+        &lt;tr&gt;
+            &lt;td&gt; &lt;/td&gt;    &lt;td&gt; &lt;/td&gt;    &lt;td&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt; &lt;/td&gt;    &lt;td&gt; &lt;/td&gt;    &lt;td&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    </textarea>
+    当然啦，每一格都要打标签很烦的，你可以试用一下table generator哦, <a href="https://www.tablesgenerator.com/html_tables">https://www.tablesgenerator.com/html_tables</a></p><br />
+    
+    <p>再来看看<b>列表/清单list</b>，这跟表格的思路挺像的，而且同样需要CSS美化。</p>
+    <textarea style = "height: 220px;">
+
+    &lt;ul&gt;
+        &lt;li&gt; &lt;/li&gt;
+        &lt;li&gt; &lt;/li&gt;
+        &lt;li&gt; &lt;/li&gt;
+        &lt;li&gt; &lt;/li&gt;
+    &lt;/ul&gt;
+    </textarea>
+    
+    <p>list可以是无序的(unordered list)，就是列举一些并列关系的元素，在开头和结尾需要用&lt;ul&gt;&lt;/ul&gt;标签；
+    或者是有序的(ordered list)，有逻辑关系或先后顺序的，在开头和结尾不用&lt;ul&gt;&lt;/ul&gt;标签，而是换成<b>&lt;ol&gt;&lt;/ol&gt;</b>标签</p><br />
+    
+    <p>最后简单的介绍一下<b>输入，需要使用的是&lt;form&gt;&lt;/form&gt;和&lt;input&gt;</b>单标签，<br />
+    我们要求用户在网页输入的场景通常是登录、发推文或者是问卷，需要把用户的输入送到后台处理，所以HTML里有form表单这个结构。<br />
+    在表单域前后加上&lt;form&gt;&lt;/form&gt;标签，我们就可以在表单域里要求用户输入。至于服务器怎么处理输入，这部分比较难，就先不说了。(这部分有点难，还没学)<br />
+    在&lt;form&gt;&lt;/form&gt;里面会使用&lt;input&gt;，它有一个很好用的属性"type"，可以非常轻松的设计各种输入：<br />
+    第一个是<b>文本输入</b>，属性是&lt;input <b>type="text"</b>&gt;，效果就是一个文本框，可以点击然后打字的那种。<br />
+    第二个是<b>密码输入</b>，属性是&lt;input <b>type="password"</b>&gt;，效果跟文本输入差不多，但是会用 * 表示输入了的字符。<br />
+    第三个是<b>单选选项</b>，属性是&lt;input <b>type="radio" name="项目"</b>&gt;，这里需要另外一个属性"name"，这主要是为了把用户的选择返回给后台，关于这个细节我就不赘述了。详细的效果是选择旁边有个圈，点了中间有黑点的那种。格式是这样的：<br />
+    <textarea style = "height: 80px;">
+
+    项目： 选项1 &lt;input type="radio" name="项目"&gt;  选项2 &lt;input type="radio" name="项目"&gt;   选项3 &lt;input type="radio" name="项目"&gt;
+    </textarea><br />
+    第四个是<b>多选选项</b>，属性是&lt;input type="checkbox" name="项目"&gt;，同样也需要name属性，效果是选择旁边有个正方形，点了会打勾的那种。格式是：<br />
+    <textarea style = "height: 80px;">
+
+    项目： 选项1 &lt;input type="checkbox" name="项目"&gt;   选项2 &lt;input type="checkbox" name="项目"&gt;   选项3 &lt;input type="checkbox" name="项目"&gt;
+    </textarea><br />
+    第五个是<b>下拉表单</b>，不用&lt;input&gt;标签了，使用&lt;select&gt;&lt;option&gt;&lt;/option&gt;&lt;/select&gt;这两组标签，思路跟list差不多。格式：</p>
+    <textarea style = "height: 180px;">
+    
+    &lt;select&gt;
+        &lt;option&gt;选项1&lt;/option&gt;
+        &lt;option&gt;选项2&lt;/option&gt;
+        &lt;option&gt;选项3&lt;/option&gt;
+    &lt;/select&gt;
+    </textarea><br />
+    
+    <p>第六个是<b>文本域</b>，当你需要用户输入多段大量文字的时候使用，比如评论、博客等，标签是&lt;textarea&gt;&lt;/textarea&gt;，页面会显示一个文本框可以打字，就是上面的例子用的框的效果。
+    最后是提交按钮，只要打上&lt;input type="submit" value="按钮文字"&gt;这个标签，就会显示一个提交的按钮了。然后在前面的&lt;form&gt;标签里设置属性，搭配js，设计下一步的操作。</p><br />
+    
+    <p>上述的tag基本够用了，其他的tag就不一一赘述。我这里无耻的转载了 邵励治 的知乎帖子 "HTML 到底有多少标签(HTML tag)？"，里面简明扼要的介绍了每个tag的作用。<br />
+    <a href="https://zhuanlan.zhihu.com/p/81132589">https://zhuanlan.zhihu.com/p/81132589</a><br />
+    若有侵权行为，请联系我，我会删改内容的。</p><br />
+    
+    <p>HTML插入特殊字符的方式跟LaTeX差不多，但是相比起来简单一点，直接把字符代码打一下就好了，前后不需要加东西。<br />
+    我这里无耻的转载了 脚本之家 里的网页 "HTML特殊字符编码对照表"，在插入字符的时候可以去查一查。<br />
+    <a href="https://www.jb51.net/onlineread/htmlchar.htm">https://www.jb51.net/onlineread/htmlchar.htm</a> <br />
+    若有侵权行为，请联系我，我会删改内容的。</p><br />
+    
+    <h3>布局：行内元素，块元素和行内块元素</h3>
+    
+    <p>有些做过微信公众号文章的朋友知道，文章的布局思路是一块接着一块的：先把网页切开一块块水平。网页的布局也一样，需要把页面划分成一个一个不同比例的方块。<br />
+    这样做的好处是什么呢？网页想要好看，不是只有一段一段的文字的话，那么就需要我们把它们有序整齐的放在不同的区域，再配上不同的颜色和其他效果，而且不能是东一块西一块的乱放，需要水平对准或者垂直对准<br />
+    网页的布局需要用HTML完成，HTML里的所有标签可以分为行内元素，块元素和行内块元素。</p><br />
+    
+    <p><b>块元素</b>，block，是指<b>独占整行的元素</b>，即它上下左右邻近的元素不会和它出现在同一行里，
+    &lt;h1&gt;&lt;/h1&gt;、&lt;p&gt;&lt;/p&gt;、&lt;ul&gt;&lt;/ul&gt;、&lt;ol&gt;&lt;/ol&gt;、&lt;li&gt;&lt;/li&gt;、&lt;div&gt;&lt;/div&gt;(div我们待会再讲) 都是块元素。
+    块元素默认的宽度是100%，高度是内容的高度，但是<b>可以在CSS里修改宽度高度</b></p><br />
+    
+    <p><b>行内元素</b>，inline，就是不会独占整行的元素啦，<b>邻近的元素可能会跟它出现在同一行里</b>，
+    &lt;a&gt;、&lt;span&gt;&lt;/span&gt;(span我们也是待会再讲) 是行内元素。
+    行内元素是<b>不可以修改宽度高度的</b>，它们的宽度高度就是内容的大小，比如你放一个链接，它的大小是定了的。其实也是可以修改的，但是那是CSS范畴的东西了，我们在CSS里讲(主要就是元素模式强制转换一下)。</p><br />
+    
+    <p><b>行内块元素</b>，inline-block，它们是<b>可以修改宽度高度的行内元素</b>，但是行内元素与行内元素之间是没有空隙的，而行内块元素之间是有一格空白间隙。
+    &lt;input&gt;、&lt;img&gt;、&lt;td&gt;、&lt;th&gt;是行内元素，显而易见，一个图像或者表格肯定是可以改变高度宽度的。</p><br />
+    
+    <p>为什么要这样区分呢，我们在CSS里修改样式后会看的更清楚，现在先有这个概念就好。</p><br />
+    
+    <p>再说说<b>块元素&lt;div&gt;...&lt;/div&gt;</b>，它的用处是设立宽度高度自由(但是会占着一整行)的区块(<b>盒子</b>)，<b>里面几乎想放啥都可以</b>，区块长度取决于div里内容的多少
+    而<b>行内元素&lt;span&gt;...&lt;/span&gt; &lt;span&gt;......&lt;/span&gt;</b>呢，它们也是盒子，但是会被并排放在同一行里，通常是几个span连在一起，不可更改宽度高度(但是你可以通过改变span的内容来改变它的大小)。
+    这两个元素在布局里进场用到，比如你可能想要把不同的元素塞进一个格子里，或者把不同的东西并列摆放。</p><br />
+    
+    <p>还有一些东西是需要记住的：
+    1. 文本块元素(p/li/h1-h6)只能容纳文本
+    2. div容器内能容纳大部分标签
+    3. 行内元素只能容纳文本或者其他行内元素
+    4. &lt;a&gt;超链接不可容纳另一个超链接</p><br />
+    
+    <p>阿巴阿巴阿巴...这些布局规则比较抽象深奥，我解释的可能不太清楚，可以看看W3C是怎么介绍的。
+    这三种元素的理论规则需要死记硬背，不一定能了解，但是当你着手去设计一个网页的时候，你就会明白了。比如，打开天猫超市的网站，试着模仿一下。</p><br />
+    
+    <p>到这里HTML的部分就完结了，我用了大概一百行介绍了HTML，一方面是我省略了一下，另一方面也是因为HTML真就非常的简单。HTML足够实现资讯式网页的大部分功能，但是有些美观和花里胡哨的东西就需要CSS和js了。</p><br />
+    </div>
+</body>
+</html>

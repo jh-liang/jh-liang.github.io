@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端快速入门: CSS</title>
+    <style>
+    body {
+        background-color: rgba(183, 206, 206, 0.3);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, SimSun;
+    }
+    
+    #head{
+        height: 60px;
+        background-color:#1c0f13;
+        line-height: 60px;
+        font-size: 18px;
+    }
+
+    #head a{
+        display: inline-block;
+        color: #e2e2e2;
+        text-decoration: none;
+        margin: 0 15px;
+    }
+
+    #blog {
+        width: 1500px;
+        margin: 30px auto;
+        padding: 50px 50px;
+        line-height: 35px;
+        font-size: 22px;
+        color: #1c0f13;
+        background-color: rgba(226, 226, 226, 0.3);      
+    }
+
+    textarea {
+        margin: 15px 0;
+        background-color: transparent;
+        font-size: 22px;
+        display: block;
+        width: 1460px;
+    }
+
+    ol{
+        margin-left: 30px;
+    }
+
+    b, strong {
+        font-weight: 900px;
+    }
+
+    h2, h3 {
+        line-height: 80px;
+    }
+
+    hr {
+        margin: 20px 0;
+    }
+
+    #blog .indent {
+        margin: 0;
+        padding: 0 50px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="head">
+        <a href = "../index.html">首页</a>
+        <a href = "#">博客</a>
+        <a href = "#music">歌曲推荐</a>
+        <a href = "#novel">小说推荐</a>
+        <a href = "#contact">联系我</a>
+    </div>
+    <div id="blog">
+
+    <h1>CSS</h1>
+    <hr />
+    
+    <p>CSS，Cascading Style Sheets，层叠样式表，听起来非常的高大上，其实我也不知道是什么意思，估计是说把不同的样式叠在一起形成某个效果吧。CSS的作用是对HTML的元素进行色彩、风格等设定。<br />
+    CSS的原理是对HTML的某些标签添加样式属性，这听着是不是有点耳熟。HTML的标签本来就可以加属性啊，直接写在标签里面的那种。<br />
+    其实是差不多的，但是CSS能做到一些HTML的标签属性做不到的事情，或者换一种说法，我们把HTML里某些"花里胡哨"的属性归类到CSS里面了。</p><br />
+    
+    <p>CSS有三种形式，分别是嵌入式、行列式和链接式。<br />
+    内部样式表(嵌入式)是把所有需要的CSS样式写在HTML的&lt;head&gt;&lt;/head&gt;里面<br />
+    行内样式表(行列式)是使用style属性把CSS直接写在HTML的标签属性里面，跟一般的HTML属性格式无异<br />
+    外部样式表(链接式)是把CSS单独写在一个文件(.css)里面，然后在HTML里引用css文件<br />
+    嵌入式比较常见，所以我们只学嵌入式。</p><br />
+    
+    <h2>CSS 嵌入式代码格式</h2>
+    
+    <p>CSS相比HTML来说要复杂一点，代码风格偏向于C(只是说看起来像C，内容完全是两回事)<br />
+    1. 标注的格式：/* comment */<br />
+    2. 代码块时会用到 { }<br />
+    3. 在每一个语句后加上;<br />
+    4. 最好有缩进[Tab]<br />
+    5. C"赋值"用等号=，CSS"赋值"用冒号:</p><br />
+    
+    <p>嵌入式CSS需要把所有CSS代码写在双标签&lt;style&gt;...&lt;/style&gt;里面，然后把这段代码放在HTML档案的&lt;head&gt;&lt;/head&gt;里面。<br />
+    在&lt;style&gt;&lt;/style&gt;里，我们对每个需要修改的HTML标签写一段代码。格式是</p>
+    
+    <textarea style="height: 340px;">
+
+    &lt;head&gt;&lt;style&gt;
+        selector1 {
+            att1: "abc";
+            att2: "bcd";
+        }
+        
+        selector2 {
+            att3: "cde";
+        }
+        
+    &lt;/style&gt;&lt;/head&gt;
+    </textarea>
+    
+    <p>在上面的代码里，<b>选择器selector</b>是一个CSS里的概念，指那些<b>我们需要改属性的tag</b><br />
+    选择器有很多种，可以改的对象也不仅仅是tag，下面会在介绍一下<br />
+    至于选择器后面大括号里的，就是要改的属性啦</p><br />
+    
+    <h2>CSS选择器</h2>
+    
+    <p>选择器大全可以参考 <a href = "https://www.w3school.com.cn/cssref/css_selectors.asp">https://www.w3school.com.cn/cssref/css_selectors.asp</a></p>
+    <p>我们挑一些常用的介绍一下</p><br />
+    
+    <ol>
+    <li><p>标签选择器 = HTML 标签名称，<br />
+    然后在HTML档案里所有的这个标签都会有CSS更改的属性。格式：<br />
+    <textarea style="height: 190px;">
+
+    &lt;head&gt;&lt;style&gt;
+    tagname {
+        att1: "abc";
+    }
+    &lt;/style&gt;&lt;/head&gt;
+    </textarea><br />
+    </p></li>
+    
+    <li><p>类选择器 = "." + 类class<br />
+    使用这个我们可以使不同tagname标签的同一个class标签拥有CSS更改的属性。格式：<br />
+    <textarea style="height: 340px;">
+
+    &lt;head&gt;&lt;style&gt;
+    .ans {                      /* 在类的名称前面加上"." */
+        color: red;
+    }
+    &lt;/style&gt;&lt;/head&gt;
+    &lt;body&gt;
+    &lt;h1&gt; A &lt;/h1&gt;
+    &lt;h1 class="ans"&gt; B &lt;/h1&gt;    /* 注意：标签属性用的是等号=，CSS样式用的是冒号:，别搞混了 */
+    &lt;h2&gt; C &lt;/h2&gt;
+    &lt;h2 class="ans"&gt; D &lt;/h2&gt;
+    &lt;/body&gt;
+    </textarea>
+    在上面的例子里，AB是h1 tag，CD是h2 tag，那么请问哪两个是红色的呢？就是拥有class="ans"属性的两个，BD。<br />
+    一个标签可以有多于一个类，都写在class属性里就行了，&lt;tag class="class1 class2"&gt;<br />
+    再多嘴一句，class的名称是随意的，但是最好符合代码命名规范，起一些不会有冲突的名字，无数字、有意义、不用关键字、阿巴阿巴阿巴...<br /><br />
+    </p></li>
+    
+    <li><p>id选择器 = "#" + id<br />
+    id选择器跟类选择器相差不大，但是id选择器只适用于单个标签，其他标签理论上不予使用，因为id是独特的，跟你的身份证号是一样的概念。格式：<br />
+    <textarea style="height: 310px;">
+
+    &lt;head&gt;&lt;style&gt;
+    #ans {                      /* 在类的名称前面加上"#"  */
+        color: red;
+    }
+    &lt;/style&gt;&lt;/head&gt;
+    &lt;body&gt;
+    &lt;h1&gt; A &lt;/h1&gt;
+    &lt;h1 id="ans"&gt; B &lt;/h1&gt;
+    &lt;h2&gt; C &lt;/h2&gt;
+    &lt;/body&gt;
+    </textarea>
+    上面的例子里，只有B是红色的。<br /><br />
+    </p></li>
+    
+    <li><p>通配符选择器 = "*"<br />
+    通配符选择器适用于HTML档案里所有的标签，就是全选。格式：<br />
+    <textarea style="height: 290px;">
+
+    &lt;head&gt;&lt;style&gt;{                      /* 在类的名称前面加上"#"  */
+    color: red;
+    }
+    &lt;/style&gt;&lt;/head&gt;
+    &lt;body&gt;
+    &lt;h1&gt; A &lt;/h1&gt;
+    &lt;h1&gt; B &lt;/h1&gt;
+    &lt;h2&gt; C &lt;/h2&gt;
+    &lt;/body&gt;
+    </textarea>
+    <p>上面例子中ABC都是红色的。</p>
+    <p>注意：上述选择器针对文本的样式修改对超链接没有作用，超链接样式修改需要单独对a标签进行修改。</p><br />
+    </p></li>
+
+    <li>后代选择器 = 父元素 + " " + 子元素<br />
+    后代选择器用于嵌套在某个特定父标签里的子标签，不作用于不在嵌套范围内的子标签。格式：<br />
+    <textarea style="height: 320px;">
+
+    &lt;head&gt;&lt;style&gt;
+    div p {
+        color: red;
+    }
+    &lt;/style&gt;&lt;/head&gt;
+    &lt;body&gt;
+    &lt;p&gt; A &lt;/p&gt;
+    &lt;div&gt; &lt;p&gt; B &lt;/p&gt; &lt;/div&gt;
+    &lt;span&gt; &lt;p&gt; C &lt;/p&gt; &lt;/span&gt;    &lt;span&gt; &lt;p&gt; D &lt;/p&gt; &lt;/span&gt;
+    &lt;/body&gt;
+    </textarea>
+    <p>上面例子中只有内容为B的p标签是嵌套在div里的，其他p不受影响，所以只有B是红色的。<br /></p>
+    <p>后代选择器会找到在父元素里所有的子元素，而且可以用于多层嵌套，比如 div span p a 是没问题的，只有符合嵌套条件的a会有样式，而且 div span p a = div a 效果也是一样的。</p>
+    <p>而且，选择器中的"路径"不一定全是标签名，也可以是前面说过的类、id等，灵活使用。</p><br />
+    </li>
+    
+    <li>
+    子选择器 = 父元素&gt;子元素<br />
+    子选择器跟后代选择器作用相同，不过它只能用于单层嵌套，不像后代选择器那样可以用于多层嵌套。作用于"直接后代"，不作用于隔代的后代，不过在父元素和子元素中间加个"&gt;"。格式：
+    <textarea style="height: 370px;">
+
+    &lt;head&gt;&lt;style&gt;
+    div&gt;p {
+        color: red;
+    }
+    &lt;/style&gt;&lt;/head&gt;
+    &lt;body&gt;
+    &lt;p&gt; A &lt;/p&gt;
+    &lt;div&gt;
+        &lt;p&gt; B &lt;/p&gt;
+        &lt;span&gt; &lt;p&gt; C &lt;/p&gt; &lt;/span&gt;    &lt;span&gt; &lt;p&gt; D &lt;/p&gt; &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;/body&gt;
+    </textarea>
+    </li>
+    
+    <p>例子中只有内容为B的p标签是div的"直接后代"，所以只有B是红色的。</p><br />
+    
+    <li><p>并列选择器 = 选择器1, 选择器2, ... , 选择器final
+    并列选择器会把某几个选择器一并修改样式。格式<br />
+    <textarea style="height: 320px;">
+
+    &lt;head&gt;&lt;style&gt;
+    div, span {
+        color: red;
+    }
+    &lt;/style&gt;&lt;/head&gt;
+    &lt;body&gt;
+    &lt;p&gt; A &lt;/p&gt;
+    &lt;div&gt; B &lt;/div&gt;
+    &lt;span&gt; C &lt;/span&gt;    &lt;span&gt; D &lt;/span&gt;
+    &lt;/body&gt;
+    </textarea>
+    例子中BCD都是红色的。
+    </p></li><br />
+    
+    <li><p>链接伪类选择器 = a:visited & a:hover<br />
+    伪类选择器pseudo-classes，用来对某些元素进行特殊效果。伪类选择器需要用在元素和有效果的动作之间加上冒号:<br />
+    比如链接伪类选择器，对于点击链接前后链接的颜色、变化进行设定，比如点击过的链接会变色、鼠标浮停在链接上会变色之类的效果。格式：</p>
+    <textarea style="height: 440px;">
+
+    &lt;head&gt;&lt;style&gt;
+        a {                             /<em> 先对a进行预先设定 </em>/
+            text-decoration: none;      /<em> 删除超链接的下划线 </em>/
+            color: red;                 /<em> 未点击的超链接是红色的 </em>/
+        }
+    
+        a:visited {                     /* 点击过的链接会变黄色 */
+            color: yellow;
+        }
+    
+        a:hover {                       /* 当鼠标悬停在链接上会变黑色 */
+            color: black;
+        }
+
+        &lt;/style&gt;&lt;/head&gt;
+    </textarea>
+    链接伪类选择器还有其他的动作效果，这里只列出两个常用的。<br />
+    </li></ol>
+    <br />
+    
+    <h2>CSS 文本属性</h2>
+    
+    <p>先说一些属性值的规范。当<b>属性值多于一个英文单词或者一个中文字的话，需要用引号括起来</b>，例如"微软雅黑"、"Times New Roman"等等<br />
+    <b>一个属性可能会有多于一个属性值</b>，比如字体的话可以同时设置中文字体、英文字体等等，<b>属性值之间需要用逗号隔开</b>，比如font-family: "微软雅黑", "Times New Roman";</p>
+    
+<table>
+<tr>
+    <td>font-family: Arial/"Times New Roman"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>	<td>字体</td>	 
+</tr><tr>
+    <td>font-size: 12px</td>	<td>字号大小</td>	 
+</tr><tr>
+    <td>line-height: 16px</td>  <td>行高(字号+行间距)</td>  
+</tr><tr>
+    <td>font-weight: 400/normal/700/bold</td>  <td>粗体</td>  
+</tr><tr>
+    <td>font-style: normal/italic</td> <td>斜体</td>	 
+</tr>
+</table>
+
+<br>font: font-style font-weight font-size/line-height font-family  复合简略写法
+<br>e.g. font: italic 400 14px/20px Arial
+<br />
+<br />
+<table>
+    <tr>
+        <td>color: red/#ff0000/rgb(255, 0, 0)</td>	<td>文本颜色</td>	 
+    </tr><tr>
+        <td>text-align: center/left/right</td>	<td>文本对齐</td>	 
+    </tr><tr>
+        <td>text-decoration: none(可用于删除超链接的下划线)/underline/overline/line-through&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>  <td>文本装饰</td>  
+    </tr><tr>
+        <td>text-indent: 10px/2em  <td>段落缩进</td>  	 
+    </tr>
+</table>
+
+<br>
+    
+    <h2>布局</h2>
+    
+    <p>在之前HTML的部分里，我们学到过&lt;span&gt;&lt;/span&gt;和&lt;div&gt;&lt;/div&gt;，也接触了盒子这个概念。我们说过，布局其实就是把内容装进一个又一个的盒子，然后再把这些盒子美观包装，通过不同的方式放到网页的不同区域上就好。</p>
+    <br />
+    <p>需要注意的是，盒子包括但不限于span和div，大部分的标签都可以当作盒子使用，只不过使用它们是为了某些特殊的用途，但是其实可以呈现和盒子一样的效果。
+    比如p/h1这类的标题标签，用途当然是为了装标题，但它同时也是一个盒子，也具备盒子的功能。</p>
+    <br />
+    <p>以下是针对盒子样式的标签，可以设置尺寸、背景、外框、边距等</p>
+    
+    <table>
+        <tr>
+            <td>height: 100px/500px&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>	<td>高度</td>	 
+        </tr><tr>
+            <td>width: 100px/500px</td>	<td>宽度</td>	 
+        </tr><tr>
+            <td>background-color: red/rgba(0, 255, 0, 0.2)</td>  <td>背景颜色，使用rgba的话最后一个是透明度alpha</td>  
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td>background-image: url(path)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>	<td>背景图片，url()必须写，_path为图片在服务器内的路径或者外部网站的图片链接</td>	 
+        </tr><tr>
+            <td>background-repeat: no-repeat</td>	<td>是否让背景图片重复平铺整个盒子</td>	 
+        </tr><tr>
+            <td>background-position: 0px 20px/left top/right bottom</td>  <td>背景图片在盒子里的坐标，第一个参数为图片左边线距离左边框的距离，第二个是图片距离上边框的距离</td>  
+        </tr><tr>
+            <td>background-attachment: fixed</td>  <td>背景图片不随着页面滚动</td>   
+        </tr>
+    </table>
+
+    
+<br>简写方法：background: 背景颜色 背景图片地址 背景平铺 背景图像滚动 背景图像位置
+<br>上述五个属性除了可以给盒子div/span之外，也可以直接作为body的样式，成为页面的背景
+    
+<table>
+    <tr>
+        <td>border-width: 2px/6px</td>	<td>边框宽度</td>	 
+    </tr><tr>
+        <td>border-style: solid/dotted/dashed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>	<td>边框样式</td>	 
+    </tr><tr>
+        <td>border-color: red/blue</td>  <td>边框颜色</td>  
+    </tr><tr>
+        <td>border-radius: 100px/50%</td>  <td>设定圆角，可以让盒子变成圆角矩形，甚至可以变成圆形的盒子</td>   
+    </tr>
+</table>
+
+<br>简写方法：border: 宽度 样色 颜色
+<br>而且，border是一次性写了四条边的样式，也可以每一条边都可以用简写的方式分开写它的样式，比如
+
+<br>border-top: 2px dashed green;
+<br>border-bottom: none;
+<br>border-left: 6px dotted blue;
+<br>border-right: 4px solid red;<br />
+<br>border部分的属性除了可以用于盒子容器外，也可以用于表格<br />
+    
+<br>padding: 25px 15px 25px 15px    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	 内边距：上面 右面 下面 左面(顺时针顺序)，内容距离边框的距离</p>
+    
+<br>margin: 25px 15px 25px 15px    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 外边距：上面 右面 下面 左面，边框外的透明范围</p>
+    
+<br>总结一下，border, padding, margin的设定格式差不多，border可以设定一些显示的属性。padding和margin的区别是，padding范围的颜色是盒子的颜色，而margin范围的颜色是盒子外的背景颜色。
+<br>    
+<br>注意：盒子本身的尺寸，height/width是不包括border, padding和margin的，在设置盒子大小的时候需要非常小心设定这几个值。而且，这几个值非常容易有各种各样的冲突情况，打完代码后必须打开网页打开F12看一下每个盒子效果是否实现。
+<br>
+<br>Border, padding, margin这三个值并不是默认为零的，你可以随便打一些HTML代码看一下，大部分的盒子元素，包括body, p, h1等等都会有默认非零的margin, border值，而且不同的浏览器编译的时候，这些默认值可能还不一样。
+    所以，如果我们要做的非常美观，精确到每条边的每个像素值，保证网页不会出错的话，就需要把默认值归零。做法很简单，用通配符选择器就可以了：
+    <textarea style="height: 155px;">
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    </textarea>
+    
+    <p>介绍完盒子的外观样式后，再说一下排版。在CSS中，我们有三种盒子的排版方式，通过它们我们能做到不同的排版效果：
+    1. 标准流/文档流
+    2. 浮动
+    3. 定位</p>
+    <br />
+    
+    <h3>标准流：CSS 行内元素，块元素和行内块元素的属性与转换</h3>
+    
+    <p>我们之前在HTML的文章里看到过这三种布局元素以及它们的特性。复习一下：
+<br>块元素block：独占整行，可自行修改高度和宽度
+<br>行内元素inline：不独占整行(可与其他元素并排排列在同一行)，不可修改高度和宽度(由它的内部元素大小决定)
+<br>行内块元素inline-block：不独占整行，可自行修改高度和宽度</p>
+<br>
+    <p>这三种布局元素是可以相互转换的，即一个行内元素可以"转换"成行内块元素，那么它既保留了本来的用途，也有了行内块元素的特征。转换需要的样式很简单，<br>
+    display: block/inline/inline-block(想要转换成什么模式)</p>
+    <br>
+    <p>两个非常常见的转换：<br />
+    第一个是把&lt;a&gt;从行内元素变成行内块元素，这样可以扩大链接的点击范围，使链接不只是一串文字，而是一个装着文字和图片的框。<br />
+    第二个是把&lt;span&gt;从行内元素变成行内块元素，这样我们就有行内块元素容器了，即可以并排排列而且自订大小的容器。</p>
+    <br />
+    <p>转换要根据具体实际需要，每个标签的转换效果可能会有些许不同，需要开点脑洞，而且要记住不同布局元素的性质和规则。</p>
+    <p>行内块元素好像非常方便，经常会把其他元素转换到行内块元素使用。它既可以与其他元素并列排列，也可以调整大小。但是它有一个缺点，当行内块元素并排排列的时候，它们中间会有个间隙，这并不是margin的问题，而是行内块元素本来的设计就是这样的。当你觉得这个间隙影响你的排版布局的时候，你可能需要其他的排版方式了。。。</p>
+    <br />
+
+    <h3>浮动</h3>
+    
+    <p>标准流有时候会过于死板，就是先弄一个块元素，再往里面填行内块元素，而且都是向左对齐的。</p>
+    <p>浮动相对来说比较灵活，它会把目标盒子抽取出来，像ps那样，放到另一个"图层"里，它在本来图层里的空间不会被保留，这个图层的范围是装着它的那个盒子(父盒子)(也可以是body)。</p>
+    <p>在这个元素后面的、不是浮动的元素会被遮住。注意是遮住后面的，前面的不受影响。</p>
+    <br />
+    <p>举个例子：</p>
+    
+    <textarea style="height: 640px;">
+
+    &lt;head&gt;&lt;style&gt;
+        div {
+            background-color: grey;
+            width: 400px;
+            height: 400px;
+            // div是个块元素，独占一行
+        }
+    
+        .left {
+            float: left;
+            background-color: red;
+            width: 200px;
+            height: 200px;
+        }
+    
+    &lt;/style&gt;&lt;/head&gt;
+    &lt;body&gt;
+        &lt;div&gt;A&lt;/div&gt;
+        &lt;div class="left"&gt;B&lt;/div&gt;
+        &lt;div&gt;C&lt;/div&gt;
+        &lt;div class="left"&gt;D&lt;/div&gt;
+    &lt;/body&gt;
+    </textarea>
+    
+    <p>结果是怎么样的呢？</p>
+    
+    <p>如果B不是float的话，就会是四个垂直放着的盒子，左侧对齐。</p>
+    
+    <p>如果B是float的话，A盒子不会被盖住(<b>因为它在B的前面</b>)；B会遮盖住C的一部分，就像两个图层一样，C的文本内容会在B的右边线外显示；D不会遮盖住C(因为C在D前面)。</p>
+    <br />
+    <p>还有一个，如果&lt;strong&gt;浮动盒子的宽度高度 &geq; 标准流的宽度高度&lt;/strong&gt;的话，标准流盒子就会被完全覆盖，这不行，所以在这个情况下，&lt;strong&gt;覆盖效果不会发生&lt;/strong&gt;。可以通过margin或者透明盒子等方法来避开这些麻烦情况，但是建议一个盒子里要么全是标准要么全是浮动会比较好。</p>
+    
+    <p>浮动的格式：
+    float: none/left/right				默认值=none（不浮动），只能选择向左或者向右浮动</p>
+    <br />
+    <p>那么把浮动的放到"浮动图层"之后呢？</p>
+    <ol>
+        <li>如果是向左浮动，那么盒子的左边线会贴着它左边的元素或者父盒子的左边线。</li>
+        <li>如果是向右浮动，那么盒子的右边线会贴着它右边的元素或者父盒子的右边线。</li>
+        <li>当一行内的元素溢出父盒子的宽度时，就另起一行，</li>
+        <li>每一行的元素顶端对齐</li>
+        <li>浮动元素具有行内块元素的特点，并排排列，可改大小，但是盒子中间没有间隙，所以如果你想要没有间隙的行内块元素的话，可以使用left float元素。</li>
+    </ol>
+    <br />
+    <p>看起来就是向左对齐和向右对齐，但是其实要更复杂。看个例子，</p>
+    
+    <textarea style="height: 560px;">
+
+    &lt;head&gt;&lt;style&gt;
+        div {
+            background-color: grey;
+            width: 400px;
+            height: 400px;
+            float: left;
+        }</p>
+    
+    .right {
+        float: right;
+    }
+    
+    &lt;/style&gt;&lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class&gt;A&lt;/div&gt;
+        &lt;div class="right"&gt;B&lt;/div&gt;
+        &lt;div class&gt;C&lt;/div&gt;
+        &lt;div class="right"&gt;D&lt;/div&gt;
+    &lt;/body&gt;
+    </textarea>
+    出来的结果是怎么样的呢？A盒子会贴在最左边，B盒子会贴在最右边，C盒子会贴在A盒子的右边线，D盒子会贴在B盒子的左边<br />
+    所以效果会是|AC    DB|，希望通过这个例子会让你感受到float是怎么样工作的</p>
+    <br />
+    <p>float只能管一个盒子里左右的排版，上下的排版还是需要用div使用标准流去完成的。所以，在布局的时候，通常会标准流和浮动一起用。</p>
+    <br />
+    <p>要开学了，先不打了，定位的部分挺简单的，也不太需要。掌握标准流和定位就足够完成大部分的排版了。</p>
+    </div>
+</body>
+</html>
